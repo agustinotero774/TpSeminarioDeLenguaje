@@ -9,20 +9,25 @@
     android:gravity="center_horizontal"
     android:background="@color/black">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/primary_layout"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="ingrese nombre de usuario"/>
 
-        <EditText
-            android:id="@+id/editUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:inputType="text"/>
+    <EditText
+        android:id="@+id/editUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:inputType="text"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,6 +42,12 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:inputType="textPassword"/>
+
+    <CheckBox
+        android:id="@+id/cbRecordar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar Usuario" />
 
     <LinearLayout
         android:weightSum="1"
