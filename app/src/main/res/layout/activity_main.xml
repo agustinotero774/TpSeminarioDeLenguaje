@@ -13,5 +13,14 @@
         android:id="@+id/toolbar"
         layout="@layout/primary_layout"
         />
-
+    <Button
+        android:id="@+id/btnIniciarServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play/Pause"/>
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play/Pause"/>
 </LinearLayout>

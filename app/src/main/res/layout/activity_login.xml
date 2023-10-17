@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:text="ingrese nombre de usuario"/>
+        />
 
     <EditText
         android:id="@+id/editUser"

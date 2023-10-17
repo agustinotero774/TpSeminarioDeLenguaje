@@ -1,5 +1,5 @@
 package com.example.tp_01
-
+/*
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -42,4 +42,4 @@ class RegisterActivity : AppCompatActivity() {
 
 
 
-    }
+    }*/

@@ -1,4 +1,4 @@
-/*package com.example.tp_01
+package com.example.tp_01
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -6,9 +6,9 @@ import androidx.room.Query
 
 @Dao
 interface PokeDao {
-    @query("select * from ")
-    fun getAll(): List<>
+    @Query("select * from pokes_table")
+    fun getAll(): List<Poke>
 
-    @insert
+    @Insert
     fun insertPoke(poke: Poke)
-}*/
+}

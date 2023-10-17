@@ -1,12 +1,14 @@
-/*package com.example.tp_01
+package com.example.tp_01
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Examen::class], version = 1)
-abstract class AppDatabase: RoomDataBase() {
-    abstract fun examenDao(): ExamenDao
+@Database(entities = [Poke::class], version = 1)
+abstract class AppDatabase:RoomDatabase() {
+
+    abstract fun PokeDao(): PokeDao
 
     companion object{
 
@@ -28,4 +30,4 @@ abstract class AppDatabase: RoomDataBase() {
 
 
     }
-}*/
+}

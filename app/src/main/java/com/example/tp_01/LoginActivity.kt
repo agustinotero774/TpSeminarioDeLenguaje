@@ -3,20 +3,28 @@ package com.example.tp_01
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 
 class LoginActivity : AppCompatActivity() {
+
+
     lateinit var etUser: EditText
     lateinit var etPass: EditText
     lateinit var cbRecordar: CheckBox
-    lateinit var btnIniciarSesion: Button
     lateinit var btnRegistrarse: Button
+    lateinit var btnIniciarSesion: Button
+    lateinit var toolbar: Toolbar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
         etUser = findViewById(R.id.editUser)
         etPass = findViewById(R.id.editPass)
@@ -28,82 +36,46 @@ class LoginActivity : AppCompatActivity() {
         var usuarioGuardado = preferencias.getString(resources.getString(R.string.nombre_usuario), "")
         var passwordGuardado = preferencias.getString(resources.getString(R.string.password_usuario), "")
 
-        //if(usuarioGuardado!= null && passwordGuardado!= null){
-         //   startMainActivity(usuarioGuardado)
-        //}
+        if(usuarioGuardado!= null && passwordGuardado!= null){
+            startMainActivity(usuarioGuardado)
+        }
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.title = "mis poke"
-
-        /*btnIniciarSesion.setOnClickListener {
-            var mensaje = "Iniciar Sesion"
-
-            var nombreUsuario = etUser.text.toString()
-            var passWordUsuario = etPass.text.toString()
-
-            if(nombreUsuario.isEmpty() || passWordUsuario.isEmpty()){
-                mensaje+= " - Faltan Datos"
-            }else {
-                mensaje += " - Datos OK"
-
-                if (cbRecordar.isChecked){
-
-                    mensaje += "- Recordar Usuario"
-
-                    var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
-                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), nombreUsuario).apply()
-                    preferencias.edit().putString(resources.getString(R.string.password_usuario), passWordUsuario).apply()
-            }
-         }*/
-        btnIniciarSesion.setOnClickListener {
-            var mensaje = "Iniciar Sesion"
-            // Obtenemos el dato que se ingreso en la vista
-            var nombreUsuario = etUser.text.toString()
-            if (nombreUsuario.isEmpty() || etPass.text.toString().isEmpty()) {
-                mensaje += " - Faltan Datos"
-            } else {
-                mensaje += " - Datos OK"
-                // Verificamos si esta tildado el CechBox
-                if (cbRecordar.isChecked)
-                    mensaje += "- Recordar Usuario"
-
-                // Indicamos a que pantalla queremos ir
-                val intentMain = Intent(this, MainActivity::class.java)
-                // Agregamos datos que queremos pasar a la proxima pantalla
-                intentMain.putExtra("nombre", nombreUsuario)
-                // Cambiamos de pantalla
-                startActivity(intentMain)
-                // Eliminamos la Activity actual para sacarla de la Pila
-                finish()
-            }
-        }
+        supportActionBar!!.title = resources.getString(R.string.titulo)
 
 
         btnRegistrarse.setOnClickListener {
-            var mensaje = "Iniciar Sesion"
+            // Mostramos un mensaje
+            //Toast.makeText(this, "Registrar Usuario", Toast.LENGTH_SHORT).show()
+            var intentTerminos = Intent(this, TerminosYCondicionesActivity::class.java)
+            startActivity(intentTerminos)
+        }
 
+
+        btnIniciarSesion.setOnClickListener {
+            var mensaje = "Iniciar Sesion"
             var nombreUsuario = etUser.text.toString()
-            if(nombreUsuario.isEmpty() || etPass.text.toString().isEmpty()){
+            var passwordUsuario = etPass.text.toString()
+            if(nombreUsuario.isEmpty() || passwordUsuario.isEmpty()){
                 mensaje+= " - Faltan Datos"
+            }else {
+                mensaje+= " - Datos OK"
+
+                if(cbRecordar.isChecked) {
+                    var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
+                    preferencias.edit().putString(resources.getString(R.string.nombre_usuario), nombreUsuario).apply()
+                    preferencias.edit().putString(resources.getString(R.string.password_usuario), passwordUsuario).apply()
+                }
+                startMainActivity(nombreUsuario)
             }
-            val intentMain = Intent(this, RegisterActivity::class.java)
-            intentMain.putExtra("nombre", nombreUsuario)
-            startActivity(intentMain)
-            finish()
         }
     }
 
-    /*private fun startMainActivity(usuarioGuardado: String) {
-        // Indicamos a que pantalla queremos ir
+    private fun startMainActivity(usuarioGuardado: String) {
         val intentMain = Intent(this, MainActivity::class.java)
-        // Agregamos datos que queremos pasar a la proxima pantalla
         intentMain.putExtra(resources.getString(R.string.nombre_usuario), usuarioGuardado)
-        // Cambiamos de pantalla
         startActivity(intentMain)
-        // Eliminamos la Activity actual para sacarla de la Pila
         finish()
     }
-
-    }*/
-    }
+}
