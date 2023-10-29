@@ -1,71 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:background="@color/black">
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/primary_layout"
-        />
+    android:background="@color/white"
+    tools:context="LoginActivity">
 
     <TextView
+        android:id="@+id/textAmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Ingrese su cuenta"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:textColor="@color/white"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.001"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
 
     <EditText
-        android:id="@+id/editUser"
+        android:id="@+id/etIngreseUs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:inputType="text"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:text="Ingrese Contrseña"/>
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="50dp"
+        android:hint=" Usuario"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAmar"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editPass"
+        android:id="@+id/etContraseña"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:inputType="textPassword"/>
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="60dp"
+        android:hint=" Contraseña"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:lines="@android:integer/config_longAnimTime"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etIngreseUs"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <CheckBox
-        android:id="@+id/cbRecordar"
+        android:id="@+id/cbRecordarUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recordar Usuario" />
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="8dp"
+        android:text="Recordar Usuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etContraseña" />
 
-    <LinearLayout
-        android:weightSum="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/btnIniciarSesion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Iniciar sesion"
-            android:layout_weight ="0.5" />
-        <Button
-            android:id="@+id/btnRegistrarse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registrarse"
-            android:layout_weight=".5"/>
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Iniciar Sesion"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbRecordarUsuario" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnReg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="32dp"
+        android:text="Registrarse"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciar" />
 
-</LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
